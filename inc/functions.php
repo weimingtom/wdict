@@ -1,11 +1,12 @@
 <?php
-/* -----------------------------------------------------------------
-  Webdict
+/*------------------------------------------------------------------------
+	WDict, another web-based dictionary
 
-  @author: NGUYEN DAI Quy <vnpenguin@vnoss.org>
-  @license: GPL
-  @date: Sun Jan  8 17:40:22 CET 2006
-  ----------------------------------------------------------------- */
+	@author  NGUYEN-DAI Quy <vnpenguin@vnoss.org>
+	@license http://www.gnu.org/licenses/gpl.html GPL version 2 or higher
+	@date    Sun Jan  8 17:40:22 CET 2006
+	@url     http://vnoss.org http://forum.vnoss.org 
+--------------------------------------------------------------------------*/
 function _Addslashes( $str ){
    $str = str_replace('\\', '\\\\', $str);
    $str = str_replace('\'', '\'\'', $str);
@@ -80,33 +81,39 @@ function fmtHTML($row) {
 	global $d;
 	
 	$is_admin = (1 > 2); // Admin functions not available for this moment !
-	
 	$url = 'admin.php?d='.$d.'&action=';
-	$content = preg_split("/\r?\n/",$row['meanings']);
-	if(!$row['word']){ return '';}
-	$out = "\n".'<!-- Begin output for the word -->'."\n";
-	$out .= '<div class="word_meanings">';
-	$out  .= '<div class="word"><table width="100%"><tr><td class="thisword" width="100" nowrap>'.$row['word'].'</td>';
-	if($row['phonetic'])
-		$out .= '<td class="phonetic" width="100%" nowrap>/'.$row['phonetic'].'/</td>';
-	$out .= '<td align="right" class="actions">';
 	
-	$out .= ($is_admin) ? '<a href="'.$url.'edit&id='.$row['id'].'">Sửa</a>&nbsp;'.
-			'<a href="'.$url.'add&id=&">Thêm</a>' : '&nbsp;';
-	$out .= '</td></tr></table></div>'."\n";
+	$word = $row['word'];
+	$meanings = $row['meanings'];
+	$phonetic = $row['phonetic'];
+	
+	if($word == '')
+		return '';
+	
+	$out  = "\n".'<!-- Begin output for the word -->'."\n";
+	$out .= '<div class="word_meanings">';
+	$out .= '<div class="word"><span class="thisword">'.$word.'</span>';
+	if($phonetic)
+		$out .= '<span class="phonetic">/'.$phonetic.'/</span>';
+	if(make_audio_link($word, $d))
+		$out .= '<span class="audio">'.make_audio_link($word, $d).'</span>';
+	$out .= '</div>'."\n";
 	$out .= '<div class="meanings">'."\n";
-	foreach ($content as $line){
-		if(preg_match("/\* (.+)\s*$/",$line,$matches))
-			$line = '&loz; <span class="kind">'.$matches[1].'</span>'."\n";
-		elseif (preg_match("/\- (.+)\s*$/",$line,$matches))
+	$myarr = preg_split("/\r?\n/", $meanings);
+	foreach ($myarr as $line){
+		$is_kind = false;
+		if(preg_match("/\* (.+)\s*$/", $line, $matches)){
+			$line = '<br><p class="kind">&loz; '.$matches[1].'</p>'."\n";
+			$is_kind = true;
+		} elseif (preg_match("/\- (.+)\s*$/", $line, $matches))
 			$line = '&nbsp;&nbsp;&bull; <span class="mean1">'.$matches[1]."</span>\n";
-		elseif (preg_match("/!(.+)\s*$/",$line,$matches))
+		elseif (preg_match("/!(.+)\s*$/", $line, $matches))
 			$line = '&nbsp;&nbsp;&spades; <span class="mean2">'.$matches[1]."</span>\n";
-		elseif(preg_match("/^=(.+)\+\s*(.+)\s*$/",$line,$matches)){
-			$line = '&nbsp;&nbsp;&nbsp;&nbsp;&sdot; <span class="lang1">'.$matches[1].'</span> &rArr; '.
-					'<span class="lang2">'.$matches[2]."</span>\n";
+		elseif(preg_match("/^=(.+)\+\s*(.+)\s*$/", $line, $matches)){
+			$line = '&nbsp;&nbsp;&nbsp;&nbsp;&sdot; <span class="lang1">'.$matches[1].
+			'</span> &rArr; <span class="lang2">'.$matches[2]."</span>\n";
 		}
-		$out .= $line ."<br />\n";
+		$out .= $is_kind ? $line : $line ."<br />\n";
 	}
 	$out .= "<br /></div></div>\n";
 	$out .= '<!-- End output for the word -->'."\n";
@@ -180,12 +187,25 @@ function isValidDictName($d){
 
 //---------------------------------------------------
 // Workaround for Vietnamese UTF8 Collation of MySQL
-// Thanks to skz0 for this idea :-)
+// Thanks to Long Dinh Le (skz0) <longld AT gmail DOT com> for this nice idea :-)
 //---------------------------------------------------
 function fetchRow($res, $q) {
 	while ( $row = mysql_fetch_assoc( $res ) ){
 		if ( $q === $row['word'] )
 			return $row;
 	}
+}
+//----------------------------------------------------------
+// Audio support with http://musicplayer.sourceforge.net/
+//----------------------------------------------------------
+function make_audio_link($word, $dict) {
+	$audio_file = 'media/'.substr($dict,0,2).'/'.substr($word,0,1).'/'.$word.'.mp3';
+	if( ! is_file($audio_file) )
+		return '';
+	$data = 'media/musicplayer.swf?&song_url='.$audio_file.'&'; 
+	return '<object type="application/x-shockwave-flash" data="'.$data.'" '.
+		'width="17" height="17"><param name="movie" value="'.$data.'" />'.
+		'<img src="img/noflash.gif" width="17" height="17" alt="" />'.
+		'</object>';
 }
 ?>

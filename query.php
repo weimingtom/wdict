@@ -1,14 +1,13 @@
 <?php
-//-----------------------------------------------------------------
-//  Webdict for VnOSS
-//
-//  @Author: NGUYEN DAI Quy <vnpenguin@vnoss.org>
-//  @Date: Sun Jan  8 17:40:22 CET 2006
+/*------------------------------------------------------------------------
+	WDict, another web-based dictionary
 
-//  @Update: 19:17 27/12/2008
-//-----------------------------------------------------------------
-// query.php?q=QUERYSTRING&d=EN_VI&n=NUM&f=FORMAT
-//
+	@author  NGUYEN-DAI Quy <vnpenguin@vnoss.org>
+	@license http://www.gnu.org/licenses/gpl.html GPL version 2 or higher
+	@date    Sun Jan  8 17:40:22 CET 2006
+	@url     http://vnoss.org http://forum.vnoss.org 
+	@usage   query.php?q=QUERYSTRING&d=EN_VI&n=NUM&f=FORMAT
+--------------------------------------------------------------------------*/
 include('inc/config.php');
 include('inc/functions.php');
 

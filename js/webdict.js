@@ -1,11 +1,11 @@
-/*************************************************
-	Webdict
+/*------------------------------------------------------------------------
+	WDict, another web-based dictionary
 
-	@author: NGUYEN DAI Quy <vnpenguin@vnoss.org>
-	@license: GPL
-	@date: 27/Dec/2008
-
-*************************************************/
+	@author  NGUYEN-DAI Quy <vnpenguin@vnoss.org>
+	@license http://www.gnu.org/licenses/gpl.html GPL version 2 or higher
+	@date    Sun Jan  8 17:40:22 CET 2006
+	@url     http://vnoss.org http://forum.vnoss.org 
+--------------------------------------------------------------------------*/
 var dictName = '';
 function doSubmit(){
 	$("#selDict").val(dictName);

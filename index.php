@@ -1,12 +1,12 @@
 <?php
-/*-----------------------------------------------------------------
-  Webdict
+/*------------------------------------------------------------------------
+	WDict, another web-based dictionary
 
-  @Author : NGUYEN DAI Quy <vnpenguin@vnoss.org>
-  @License: GPL
-  @Date: Sun Jan  8 17:40:22 CET 2006
-  @Update: 15:30 27/12/2008
- -----------------------------------------------------------------*/
+	@author  NGUYEN-DAI Quy <vnpenguin@vnoss.org>
+	@license http://www.gnu.org/licenses/gpl.html GPL version 2 or higher
+	@date    Sun Jan  8 17:40:22 CET 2006
+	@url     http://vnoss.org http://forum.vnoss.org 
+--------------------------------------------------------------------------*/
 include('inc/config.php');
 include('inc/functions.php');
 
@@ -75,7 +75,7 @@ if(isset($_POST['submit'])
 include('headers.php');
 
 //$form[] = '<h1><a href="'.$_SERVER['SELF_PHP'].'">VnOSS webdict</a> (<span id="dName"></span>)</h1>';
-$form[] = '<h1>VnOSS webdict (<span id="dName"></span>)</h1>';
+$form[] = '<h1>WDict</h1>';
 $form[] = '<form id="fDict" name="fmdict" method="post" action="'.$_SERVER['PHP_SELF'].'">';
 $form[] = makeSelectDict($d);
 $form[] = '<input id="qStr" type="text" name="q" value="'.(isset($query)?$query:'').'" class="text" maxlength="32" onChange="doSubmit();">';

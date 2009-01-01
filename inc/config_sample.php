@@ -1,18 +1,19 @@
 <?php
-/*-----------------------------------------------------------------
-  Webdict 
-  @author: Nguyen Dai Quy <vnpenguin@vnoss.org>
-  @License: GPL
-  @Date: Sun Jan  8 17:40:22 CET 2006
-  @Last update: 
------------------------------------------------------------------*/
+/*------------------------------------------------------------------------
+	WDict, another web-based dictionary
+
+	@author  NGUYEN-DAI Quy <vnpenguin@vnoss.org>
+	@license http://www.gnu.org/licenses/gpl.html GPL version 2 or higher
+	@date    Sun Jan  8 17:40:22 CET 2006
+	@url     http://vnoss.org http://forum.vnoss.org 
+--------------------------------------------------------------------------*/
 $dbname = 'webdict';
 $dbuser = '';
 $dbpass = '';
 $dbhost = 'localhost';
 $tblprefix = 'dict_'; // Table prefix
 
-define('DICT_VERSION','dev-20081231');
+define('DICT_VERSION','dev-20090101');
 
 // Working template in $DICTHOME/template/DICT_TEMPLATE
 define('DICT_TEMPLATE','default.tpl');

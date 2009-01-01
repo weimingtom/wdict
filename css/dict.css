@@ -1,3 +1,11 @@
+/*------------------------------------------------------------------------
+	WDict, another web-based dictionary
+
+	@author  NGUYEN-DAI Quy <vnpenguin@vnoss.org>
+	@license http://www.gnu.org/licenses/gpl.html GPL version 2 or higher
+	@date    Sun Jan  8 17:40:22 CET 2006
+	@url     http://vnoss.org http://forum.vnoss.org 
+--------------------------------------------------------------------------*/
 FORM,TEXTAREA,INPUT{
 	FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif;
 	FONT-SIZE: 12px;
@@ -44,45 +52,37 @@ SELECT, SELECT OPTION {
 }
 .word {
 	FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif;
-	FONT-SIZE: 24px;
+	FONT-SIZE: 20px;
 	padding: 5px;
-	border-bottom: 2px solid blue;
+	border-bottom: 2px solid #BDBDBD;
+	padding: 10px;
 }
 .word .thisword {
 	FONT-WEIGHT: bold;
 	color: red;
+	padding-right: 20px;
+	white-space: nowrap;
 }
 .word .phonetic {
 	color: blue;
+	padding-right: 20px;
+	white-space: nowrap;
 }
-.word TD.actions A {
-	FONT-SIZE: 12px;
-	text-decoration: none;
-	border: 1px solid #2e30cb;
-	padding-left: 5px;
-	padding-right: 5px;
-}
-.word TD.actions A:hover {
-	/* text-decoration: underline; */
-	background-color: #ccc;
-}
-
 
 .meanings {
 	FONT-SIZE: 13px;
 	padding-left: 20px;	
-	padding-top: 5px;
+	padding-top: 0px;
 }
 
 .meanings .kind {
+	width: 250px;
 	FONT-SIZE: 14px;
-/*	FONT-WEIGHT: bold; */
 	color: blue;
 	background-color: #E6E6E6;
-	/*text-decoration: underline;*/
-	padding-left: 5px;
-	padding-right: 5px;
-	border-bottom: 1px solid black;
+	padding: 2px 10px;
+	margin: 0;
+	border-bottom: 1px solid #6E6E6E;
 }
 
 .meanings .mean1 {
