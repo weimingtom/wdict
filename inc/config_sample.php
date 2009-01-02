@@ -1,6 +1,6 @@
 <?php
 /*------------------------------------------------------------------------
-	WDict, another web-based dictionary
+	WDict, yet another web-based dictionary
 
 	@author  NGUYEN-DAI Quy <vnpenguin@vnoss.org>
 	@license http://www.gnu.org/licenses/gpl.html GPL version 2 or higher
@@ -13,7 +13,7 @@ $dbpass = '';
 $dbhost = 'localhost';
 $tblprefix = 'dict_'; // Table prefix
 
-define('DICT_VERSION','dev-20090101');
+define('DICT_VERSION','dev-20090102');
 
 // Working template in $DICTHOME/template/DICT_TEMPLATE
 define('DICT_TEMPLATE','default.tpl');

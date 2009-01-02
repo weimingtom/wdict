@@ -1,6 +1,6 @@
 <?php
 /*------------------------------------------------------------------------
-	WDict, another web-based dictionary
+	WDict, yet another web-based dictionary
 
 	@author  NGUYEN-DAI Quy <vnpenguin@vnoss.org>
 	@license http://www.gnu.org/licenses/gpl.html GPL version 2 or higher

@@ -1,5 +1,5 @@
 /*------------------------------------------------------------------------
-	WDict, another web-based dictionary
+	WDict, yet another web-based dictionary
 
 	@author  NGUYEN-DAI Quy <vnpenguin@vnoss.org>
 	@license http://www.gnu.org/licenses/gpl.html GPL version 2 or higher
@@ -18,11 +18,6 @@ function showWord ( id ){
 	$("#wordId").val(id);
 	$("#bSubmit").trigger('click');
 	//return false;
-}
-function initDict (){
-	$("#qStr").val('a');
-	$("#selDict").val('en_vi');
-	$("#bSubmit").trigger('click');
 }
 
 $(document).ready(function() {
@@ -56,7 +51,3 @@ $(document).ready(function() {
 	
 	
 });
-
-//initDict();
-
-		

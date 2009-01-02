@@ -1,6 +1,6 @@
 <?php 
 /*------------------------------------------------------------------------
-	WDict, another web-based dictionary
+	WDict, yet another web-based dictionary
 
 	@author  NGUYEN-DAI Quy <vnpenguin@vnoss.org>
 	@license http://www.gnu.org/licenses/gpl.html GPL version 2 or higher
@@ -20,14 +20,12 @@ $tpl_main = file_get_contents('template/'.DICT_TEMPLATE);
 
 // Define HTML HEAD
 $head['title'] 	= 'VnOSS - WDict';
-$head['css1'] 	= 'css/dict.css';
 $head['css2'] 	= 'css/style1.css';
 $head['css3'] 	= 'css/jquery.autocomplete.css';
 $head['js1'] 	= 'js/mudim-0.8-r153.js';
 $head['js2'] 	= 'js/jquery-1.2.6.min.js';
 $head['js3'] 	= 'js/jquery.autocomplete.js';
-$head['js4'] 	= 'js/webdict.js';
-//$head['js5']	= 'js/swfobject.js';
+$head['js4'] 	= 'js/wdict.js';
 
 $tpl_main = str_replace('<!-- dict_head -->', makeHtmlHead($head), $tpl_main);
 unset($head);
