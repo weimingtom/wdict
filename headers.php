@@ -19,7 +19,7 @@ ob_start();
 $tpl_main = file_get_contents('template/'.DICT_TEMPLATE);
 
 // Define HTML HEAD
-$head['title'] 	= 'VnOSS - Webdict';
+$head['title'] 	= 'VnOSS - WDict';
 $head['css1'] 	= 'css/dict.css';
 $head['css2'] 	= 'css/style1.css';
 $head['css3'] 	= 'css/jquery.autocomplete.css';
