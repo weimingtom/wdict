@@ -38,4 +38,8 @@ $DICT = array(
 	"ru_vi" => "Nga - Việt"
 );
 */
+
+// HTML params
+define('HTML_LANG','vi');
+define('HTML_DIR','ltr');
 ?>

@@ -27,6 +27,8 @@ $head['js2'] 	= 'js/jquery-1.2.6.min.js';
 $head['js3'] 	= 'js/jquery.autocomplete.js';
 $head['js4'] 	= 'js/wdict.js';
 
+$tpl_main = str_replace('<!-- html_lang -->', HTML_LANG, $tpl_main);
+$tpl_main = str_replace('<!-- html_dir -->', HTML_DIR, $tpl_main);
 $tpl_main = str_replace('<!-- dict_head -->', makeHtmlHead($head), $tpl_main);
 unset($head);
 
